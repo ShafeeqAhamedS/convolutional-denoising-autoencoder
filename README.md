@@ -1,4 +1,4 @@
-# Convolutional Autoencoder for Image Denoising
+# <p align="center">Convolutional Autoencoder for Image Denoising</p>
 
 ## AIM
 
@@ -26,7 +26,12 @@ Load the dataset and scale the values for easier computation.
 Add noise to the images randomly for both the train and test sets.
 
 ### Step 4:
-Build the Neural Model using Convolutional, Pooling and Up Sampling layers. Make sure the input shape and output shape of the model are identical.
+Build the Neural Model using 
+* Convolutional Layer
+* Pooling Layer
+* Up Sampling Layer. </br>
+
+Make sure the input shape and output shape of the model are identical.
 
 ### Step 5:
 Pass test data for validating manually.
@@ -40,6 +45,8 @@ Developed By: **Shafeeq Ahamed.S**
 </br>
 Register No.: **212221230092**
 
+</br></br></br></br></br></br></br></br>
+
 ### Import Libraries
 ```py
 import pandas as pd
@@ -50,6 +57,7 @@ from tensorflow import keras
 from tensorflow.keras import layers, utils, models
 from tensorflow.keras.datasets import mnist
 ```
+
 ### Read Dataset & scale it:
 ```py
 (x_train, _), (x_test, _) = mnist.load_data()
@@ -65,8 +73,10 @@ x_test_scaled = np.reshape(x_test_scaled, (len(x_test_scaled), 28, 28, 1))
 ### Add noise to image:
 ```py
 noise_factor = 0.5
-x_train_noisy = x_train_scaled + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_train_scaled.shape) 
-x_test_noisy = x_test_scaled + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=x_test_scaled.shape) 
+x_train_noisy = x_train_scaled + noise_factor *np.random.normal(loc=0.0, 
+						scale=1.0, size=x_train_scaled.shape) 
+x_test_noisy = x_test_scaled + noise_factor * np.random.normal(loc=0.0, 
+						scale=1.0, size=x_test_scaled.shape) 
 
 x_train_noisy = np.clip(x_train_noisy, 0., 1.)
 x_test_noisy = np.clip(x_test_noisy, 0., 1.)
@@ -83,6 +93,7 @@ for i in range(1, n + 1):
     ax.get_yaxis().set_visible(False)
 plt.show()
 ```
+
 ### Develop a Autoencoder DL Model:
 ```py
 input_img = keras.Input(shape=(28, 28, 1))
@@ -124,6 +135,8 @@ metrics[['loss','val_loss']].plot()
 decoded_imgs = autoencoder.predict(x_test_noisy)
 ```
 
+</br></br></br></br>
+
 ### Plot the original, noisy & reconstructed images
 ```py
 n = 10
@@ -151,15 +164,19 @@ for i in range(1, n + 1):
     ax.get_yaxis().set_visible(False)
 plt.show()
 ```
+
+
+
 ## OUTPUT
-### Model Summary
-![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/7e32f619-a652-4b56-aab5-af5b34457ac6)
 
 ### Training Loss, Validation Loss Vs Iteration Plot
-![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/9c7e3c41-7c3f-4efa-a201-0fa8ae7d66e0)
+<img width="500" src="https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/9c7e3c41-7c3f-4efa-a201-0fa8ae7d66e0">>
+
+### Model Summary
+<img width="400" src="https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/7e32f619-a652-4b56-aab5-af5b34457ac6">
 
 ### Original vs Noisy Vs Reconstructed Image
-![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/45cf671b-5cc4-4b80-98f1-67a0940adc45)
+<img src="https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/45cf671b-5cc4-4b80-98f1-67a0940adc45">
 
 ## RESULT
 Thus we have successfully developed a convolutional autoencoder for image denoising application.
