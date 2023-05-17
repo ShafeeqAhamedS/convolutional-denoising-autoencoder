@@ -36,9 +36,9 @@ Plot the predictions for visualization.
 
 
 ## PROGRAM
-Developed By: *Shafeeq Ahamed.S**
+Developed By: **Shafeeq Ahamed.S**
 </br>
-Register No.: *212221230092**
+Register No.: **212221230092**
 
 ### Import Libraries
 ```py
@@ -152,11 +152,14 @@ for i in range(1, n + 1):
 plt.show()
 ```
 ## OUTPUT
+### Model Summary
+![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/7e32f619-a652-4b56-aab5-af5b34457ac6)
 
 ### Training Loss, Validation Loss Vs Iteration Plot
-
+![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/9c7e3c41-7c3f-4efa-a201-0fa8ae7d66e0)
 
 ### Original vs Noisy Vs Reconstructed Image
+![image](https://github.com/ShafeeqAhamedS/convolutional-denoising-autoencoder/assets/93427237/45cf671b-5cc4-4b80-98f1-67a0940adc45)
 
 ## RESULT
 Thus we have successfully developed a convolutional autoencoder for image denoising application.
